@@ -1,41 +1,30 @@
 public class Adventurer extends Entity {
-    private String name;
-    private int maxHP;
-    private int currentHP;
-    private int maxMP;
-    private int currentMP;
-    private int hardiness;
-    private int wisdom;
+  private String name;
+  private int maxHP;
+  private int currentHP;
+  private int maxMP;
+  private int currentMP;
+  private int hardiness;
+  private int wisdom;
+  public int getMaxHP() { return maxHP; }
+  public Adventurer(String name) {
+    this.name = name;
+    // this.hardiness = Helper.rollD20(); TODO: Fix
+    // this.wisdom = Helper.rollD20(); TODO: Fix
+    this.maxHP = 10 + calculateModifier(hardiness);
+    this.currentHP = 10 + calculateModifier(hardiness);
+    this.maxMP = 10 + calculateModifier(wisdom);
+    this.currentMP = 10 + calculateModifier(wisdom);
+  }
 
-    public Adventurer(String name) {
-        this.name = name;
-        //this.hardiness = Helper.rollD20(); TODO: Fix
-        //this.wisdom = Helper.rollD20(); TODO: Fix
-        this.maxHP = 10 + calculateModifier(hardiness);
-        this.currentHP = 10 + calculateModifier(hardiness);
-        this.maxMP = 10 + calculateModifier(wisdom);
-        this.currentMP = 10 + calculateModifier(wisdom);
-    }
+  public String toString() { return "🤪"; }
 
-    public String toString() {
+  public int calculateModifier(int abilVal) { return (abilVal - 10) / 2; }
 
-        return "🤪";
+  public void printCharacter() {
+    System.out.println(name + " | HP: " + currentHP + "/" + maxHP +
+                       " | MP: " + currentMP + "/" + maxMP);
+  }
 
-    }
-
-
-
-    public int calculateModifier(int abilVal) {
-        return (abilVal - 10) / 2;
-    }
-
-    public void printCharacter() {
-        System.out.println(name + " | HP: " + currentHP + "/" + maxHP + " | MP: " + currentMP + "/" + maxMP);
-
-    }
-
-    public void move(){
-
-    }
+  public void move() {}
 }
-
