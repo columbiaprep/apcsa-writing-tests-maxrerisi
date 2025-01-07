@@ -23,5 +23,6 @@ public class Runner {
     assertEquals(0, new Gauntlets().getEquipmentID());
     assertEquals("Common",
                  new Gloves("Common", "", false, 0, 1, 1).getRarity());
+    assertEquals(10.0, new Shield("wood").getWeight(), 0.1);
   }
 }
